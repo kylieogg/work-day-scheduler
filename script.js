@@ -1,11 +1,17 @@
 // Load current date at bottom of header
 let today = moment();
-
 $("#currentDay").text(today.format("MMMM Do YYYY"));
 
-//function compareInput() {
-    //let currentTime = moment().format('h:mm a');
-//}
+// Assign object to localStorage
+let tasks = {
+    date: today
+};
+// Add tasks to localStorage
+let setTasks = function() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+
 
 
 
