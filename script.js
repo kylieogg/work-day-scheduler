@@ -44,9 +44,21 @@ $(".task").click(function() {
 
 // Click handler for saving tasks
 $(".saveBtn").click(function() {
-    replaceTextarea($(this));
+    var value = $(this).siblings('.description').val();
+    var currentTime = $(this).parent().attr('id');
+    localStorage.setItem(currentTime, value)
 })
 
+
+$('#hour-9 .description').val(localStorage.getItem('hour-9'));
+$('#hour-10 .description').val(localStorage.getItem('hour-10'));
+$('#hour-11 .description').val(localStorage.getItem('hour-11'));
+$('#hour-12 .description').val(localStorage.getItem('hour-12'));
+$('#hour-13 .description').val(localStorage.getItem('hour-13'));
+$('#hour-14 .description').val(localStorage.getItem('hour-14'));
+$('#hour-15 .description').val(localStorage.getItem('hour-15'));
+$('#hour-16 .description').val(localStorage.getItem('hour-16'));
+$('#hour-17 .description').val(localStorage.getItem('hour-17'));
 
 
 
@@ -54,5 +66,6 @@ $(".saveBtn").click(function() {
 
 
 // Color-code time blocks for past, present, or future
+
 
 // On time block click, events can be entered and saved in local storage. Upon page refresh, saved events persist.
