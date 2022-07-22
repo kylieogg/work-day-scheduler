@@ -1,55 +1,29 @@
-// Load current date at bottom of header
+// function to get and display current date at top of application
 let today = moment();
 $("#currentDay").text(today.format("MMMM Do YYYY"));
 
-// Assign object to localStorage
-let tasks = {
-    // date: today
-    "9": [],
-    "10": [],
-    "11": [],
-    "12": [],
-    "1": [],
-    "2": [],
-    "3": [],
-    "4": [],
-    "5": []
-};
+$(document).ready(function () {
+    // Click event listener for save button
+    $(".saveBtn").on("click", function () {
+        var text = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
 
-// Add tasks to localStorage
-let setTasks = function() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-// Click handler for tasks
-$(".task").click(function() {
-
-    // Save tasks if already clicked
-    $("textarea").each(function() {
-        replaceTextarea($(this));
-    })
-
-    let time = $(this).closest(".task-info").attr("id");
-    if (parseInt(time) >= moment().hour()) {
-        let text = $(this).text();
-        let textInput = $("<textarea>")
-            .addClass("form-control")
-            .val(text);
-
-        $(this).html(textInput);
-        textInput.trigger("focus");
-    }
+        // Save task in local storage
+        localStorage.setItem(time, text);
+    }) 
 })
 
 
-// Click handler for saving tasks
-$(".saveBtn").click(function() {
-    var value = $(this).siblings('.description').val();
-    var currentTime = $(this).parent().attr('id');
-    localStorage.setItem(currentTime, value)
-})
 
 
+
+
+
+
+
+
+
+// Get items from local storage
 $('#hour-9 .description').val(localStorage.getItem('hour-9'));
 $('#hour-10 .description').val(localStorage.getItem('hour-10'));
 $('#hour-11 .description').val(localStorage.getItem('hour-11'));
@@ -66,6 +40,3 @@ $('#hour-17 .description').val(localStorage.getItem('hour-17'));
 
 
 // Color-code time blocks for past, present, or future
-
-
-// On time block click, events can be entered and saved in local storage. Upon page refresh, saved events persist.
