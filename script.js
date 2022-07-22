@@ -11,13 +11,20 @@ $(document).ready(function () {
         // Save task in local storage
         localStorage.setItem(time, text);
     }) 
+
+    function trackTime() {
+        // Gets current time
+        var currentTime = moment().hour();
+
+        $("")
+    }        
 })
 
 
 
 
 
-
+// Color-code time blocks for past, present, or future
 
 
 
@@ -39,4 +46,6 @@ $('#hour-17 .description').val(localStorage.getItem('hour-17'));
 
 
 
-// Color-code time blocks for past, present, or future
+
+
+
