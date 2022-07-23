@@ -8,3 +8,6 @@ SO THAT I can manage my time effectively
 
 # Functionality
 This work day calendar displays work hours of 9AM - 5PM. The current date is displayed at the top of the page. Each time block has an input field and save button. Once a user inputs data into a timeblock and saves, that data will be stored in their local storage.
+
+# Deployed Application Link
+https://kylieogg.github.io/work-day-scheduler/
